@@ -1,0 +1,3 @@
+# No whitespace after the comma or in your keyboard name!
+config SHIELD_ANALOG_INPUT_MCP320X
+    def_bool $(shields_list_contains,analog-input-mcp320x)

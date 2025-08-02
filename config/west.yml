@@ -1,0 +1,11 @@
+manifest:
+  projects:
+    - name: zmk
+      remote: zmkfirmware
+      revision: main
+      import: app/west.yml
+    - name: zmk-analog-input-mcp320x
+      remote: hidsh
+      revision: main
+  self:
+    path: config

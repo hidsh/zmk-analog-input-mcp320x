@@ -1,0 +1,10 @@
+if SHIELD_ANALOG_INPUT_MCP320X
+
+    config ZMK_KEYBOARD_NAME
+        default "ANALOG_INPUT_MC"
+
+    config ZMK_BLE
+        bool
+        default y
+
+endif

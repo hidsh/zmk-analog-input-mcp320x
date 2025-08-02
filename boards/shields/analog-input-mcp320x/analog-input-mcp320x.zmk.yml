@@ -1,0 +1,8 @@
+file_format: "1"
+id: analog-input-mcp320x
+name: ANALOG_INPUT_MCP320X
+type: shield
+url: https://github.com/hidsh/zmk-analog-input-mcp320x
+requires: [seeed_xiao]
+features:
+  - keys
