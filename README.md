@@ -21,7 +21,7 @@ You can download `zmk.uf2` from the [Releases](https://github.com/hidsh/zmk-anal
 ## Configs and DTS(`.overlay`)
 You can copy-n-paste the snippet below when you create your own keyboard, but there are some points of attention.
 
-And your configs/dts can be used to both MCP3204 and MCP3208 without any modifications, because of their wiring.
+Note: your configs/dts can be used to both MCP3204 and MCP3208 without any modifications, because of their wiring.
 
 ### YOUR-SHIELD.conf
 https://github.com/hidsh/zmk-analog-input-mcp320x/blob/58f350d72296df8160907d814c6e069b578c131a/boards/shields/analog-input-mcp320x/analog-input-mcp320x.conf#L8-L34
