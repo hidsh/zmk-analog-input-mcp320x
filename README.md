@@ -20,6 +20,7 @@ You can download `zmk.uf2` from the [Releases](https://github.com/hidsh/zmk-anal
 
 ## Configs and DTS(`.overlay`)
 You can copy-n-paste the snippet below when you create your own keyboard, but there are some points of attention.
+
 And your configs/dts can be used to both MCP3204 and MCP3208 without any modifications, because of their wiring.
 
 ### YOUR-SHIELD.conf
@@ -84,7 +85,9 @@ You find the appropriate values for the propertes below:
 |`scale-multiplier`| Spped up|
 |`scale-divisor`|Slow down|
 
-The following steps shows my personal method. Though it's not reliable at all, it might still be a stepping stone for you. 
+The following steps shows my personal method.
+
+Though it's not reliable at all, it might still be a stepping stone for you. 
 
 ### 1. Use `usb-logging`
 You enable the following configs in YOUR-SHIELD.conf.
@@ -93,9 +96,9 @@ CONFIG_ANALOG_INPUT_LOG_LEVEL_DBG=y
 CONFIG_ANALOG_INPUT_LOG_DBG_RAW=y
 CONFIG_ANALOG_INPUT_LOG_DBG_REPORT=y
 ```
-And then rebuild with `--snippet zmk-usb-logging`.
+And then rebuild with `--snippet zmk-usb-logging` to tell `west` using [usb-logging](https://zmk.dev/docs/development/usb-logging).
 
-BTW, you can find the argument in the [Makefile](https://github.com/hidsh/zmk-analog-input-mcp320x/blob/58f350d72296df8160907d814c6e069b578c131a/analog-input-mcp320x.mk#L20). 
+you can find the argument in the [Makefile](https://github.com/hidsh/zmk-analog-input-mcp320x/blob/58f350d72296df8160907d814c6e069b578c131a/analog-input-mcp320x.mk#L20). 
 ```
 OPT_USB_LOGGING = --snippet zmk-usb-logging
 ```
@@ -127,7 +130,7 @@ Of cource, you can do this for `ch-y` using `myfilter -x AIN0` instead.
 
 ### 2. Take notes
 You pick the following values and take notes of them:
-- Minimum/Maximum values while a stick neutral as "zero"
+- Minimum/Maximum values while your stick neutral as "zero"
 - Maximum value when the stick pushes top edge as "max"
 - Minimum value when the stick pushes bottom edge as "min"
 
