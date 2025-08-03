@@ -15,6 +15,7 @@ You can download `zmk.uf2` from the [Releases](https://github.com/hidsh/zmk-anal
 ### MCP3204
 ![schematic_mcp3204](img/wiring-mcp3204.png)
 
+### MCP3208
 ![schematic_mcp3208](img/wiring-mcp3208.png)
 
 ## Configs and DTS(`.overlay`)
