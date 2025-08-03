@@ -9,7 +9,7 @@ This zmk-config shows how to use [MCP320x](https://www.microchip.com/en-us/produ
 - modules: https://github.com/hidsh/zmk-analog-input-driver (branch: "support-mcp320x")
 
 ## Firmware Binary
-You can download `zmk.uf2` from the [Releases](https://github.com/hidsh/zmk-analog-input-driver/releases).
+You can download `zmk.uf2` from the [Releases](https://github.com/hidsh/zmk-analog-input-mcp320x/releases).
 
 ## Connection
 ### MCP3204
