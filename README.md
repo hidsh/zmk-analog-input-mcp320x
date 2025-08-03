@@ -25,7 +25,7 @@ And your configs/dts can be used to both MCP3204 and MCP3208 without any modific
 ### YOUR-SHIELD.conf
 https://github.com/hidsh/zmk-analog-input-mcp320x/blob/58f350d72296df8160907d814c6e069b578c131a/boards/shields/analog-input-mcp320x/analog-input-mcp320x.conf#L8-L34
 
-Note: The following configs are used when you [adjust](#Adjust) your thumb sticks.
+Note: The following configs are used when you [adjust](#adjusting-steps) your thumb sticks.
 - `CONFIG_ANALOG_INPUT_LOG_LEVEL_DBG`
 - `CONFIG_ANALOG_INPUT_LOG_DBG_RAW=y`
 - `CONFIG_ANALOG_INPUT_LOG_DBG_REPORT`
@@ -41,7 +41,7 @@ Notes:
 - `&pinctrl {..}` is *not* mandatory if you use default pinout.
 - `spi-max-frequency` shoud be in the range 200kHz .. 1MHz.
 - `adc-mcp320x-vref-mv` shoud be set proper value followed by the connection of the `Vref` pin.
-- `mv-mid`, `mv-min-max`, `mv-deadzone` shoud be set proper values by hand-adjusting. See [Adjusting](#Adjusting).
+- `mv-mid`, `mv-min-max`, `mv-deadzone` shoud be set proper values by hand-adjusting. See [Adjusting](#adjusting-steps).
 
 Not tested:
 - `report-on-change-only` 
