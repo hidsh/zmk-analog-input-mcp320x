@@ -21,7 +21,7 @@ OPT_USB_LOGGING = --snippet zmk-usb-logging
 
 # for un-official drivers
 #         -DZMK_EXTRA_MODULES='/PATH/TO/foo;/PATH/TO/bar;...'
-# OPT_DRV = -DZMK_EXTRA_MODULES='${mkpath}/zmk-modules/zmk-analog-input-driver'
+OPT_DRV = -DZMK_EXTRA_MODULES='${mkpath}/zmk-modules/zmk-analog-input-driver'
 
 # for save *.i to check macro expansion `#define XXX`
 # OPT_C_FLAGS = -DCMAKE_C_FLAGS="-save-temps"

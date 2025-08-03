@@ -33,3 +33,103 @@
     };
 };
 
+// --------------------------------------------
+// mcp3204
+// --------------------------------------------
+&pinctrl {
+    spi0_default: spi0_default {
+        group1 {
+            psels = <NRF_PSEL(SPIM_SCK,  0,  5)>,   // SCK:  P0.05 (D5)
+                    <NRF_PSEL(SPIM_MOSI, 0,  4)>,   // MOSI: P0.04 (D4)
+                    <NRF_PSEL(SPIM_MISO, 0, 29)>;   // MISO: P0.29 (D3)
+        };
+    };
+
+    spi0_sleep: spi0_sleep {
+        group1 {
+            psels = <NRF_PSEL(SPIM_SCK,  0,  5)>,   // SCK:  P0.05 (D5)
+                    <NRF_PSEL(SPIM_MOSI, 0,  4)>,   // MOSI: P0.04 (D4)
+                    <NRF_PSEL(SPIM_MISO, 0, 29)>;   // MISO: P0.29 (D3)
+            low-power-enable;
+        };
+    };
+};
+
+&spi0 {
+    compatible = "nordic,nrf-spim";
+    status = "okay";
+    pinctrl-0 = <&spi0_default>;
+    pinctrl-1 = <&spi0_sleep>;
+    pinctrl-names = "default", "sleep";
+    cs-gpios = <&xiao_d 10 GPIO_ACTIVE_LOW>;         // /CS: P1.15 (D10)
+
+    adc_mcp: mcp3204@0 {
+        compatible = "microchip,mcp3204";
+        reg = <0x0>;
+        spi-max-frequency = <400000>;  // ok
+     // spi-max-frequency = <100000>;  // NG
+        #io-channel-cells = <1>;
+     // duplex = <0>;        // 0: full-duplex, 2048: half-duplex (but mcp320x support full-duplex only)
+    };
+
+};
+
+// --------------------------------------------
+// zmk-analog-input-driver
+// --------------------------------------------
+#include <zephyr/dt-bindings/input/input-event-codes.h>
+/* Reference: https://docs.zephyrproject.org/apidoc/latest/group__input__events.html */
+
+#include <input/processors.dtsi>
+#include <dt-bindings/zmk/input_transform.h>
+
+&adc {
+    status = "okay";
+};
+
+/ {
+    ain0: analog_input_0 {
+        compatible = "zmk,analog-input";
+        status = "okay";
+        sampling-hz = <100>;
+        adc-mcp320x-vref-mv = <3300>;       // vref [mV] for mcp320x (not required for internal-adcs)
+
+        x-ch {
+            io-channels = <&adc_mcp 0>;     // <--- &adc_mcp 0: mcp320x #1 ch0
+            mv-mid = <10063>;
+            mv-min-max = <7000>;
+            mv-deadzone = <200>;
+            scale-multiplier = <1>;
+            scale-divisor = <700>;
+            invert;
+            evt-type = <INPUT_EV_REL>;
+            input-code = <INPUT_REL_X>;
+        };
+
+        y-ch {
+            io-channels = <&adc_mcp 1>;     // <--- &adc_mcp 1: mcp320x #2 ch1
+            mv-mid = <10347>;
+            mv-min-max = <7000>;
+            mv-deadzone = <200>;
+            scale-multiplier = <1>;
+            scale-divisor = <700>;
+            // invert;
+            evt-type = <INPUT_EV_REL>;
+            input-code = <INPUT_REL_Y>;
+
+            /* enable report mdoe for gamepad axix or knob */
+            /* to only call input_report on quantquantized value is updated */
+            /* NOTE: mouse input does NOT need this */
+            // report-on-change-only;
+
+        };
+    };
+
+    analog_input_listener {
+        status = "okay";
+        compatible = "zmk,input-listener";
+        device = <&ain0>;
+        // input-processors = <&zip_xy_to_scroll_mapper>;                    // acts as a scroll wheel
+        input-processors = <&zip_xy_transform INPUT_TRANSFORM_Y_INVERT>;  // acts as a mouse
+    };
+};

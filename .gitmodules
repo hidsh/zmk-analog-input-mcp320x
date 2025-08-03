@@ -1,0 +1,4 @@
+[submodule "zmk-modules/zmk-analog-input-driver"]
+	path = zmk-modules/zmk-analog-input-driver
+	url = https://github.com/hidsh/zmk-analog-input-driver.git
+	branch = support-mcp320x
