@@ -1,14 +1,16 @@
-# ZMK sample shield for analog-input-driver with mcp320x
+# ZMK sample shield for analog-input-driver with MCP3204/MCP3208
 
 ![photo-breadboard](img/IMG_1603.jpg)
 
-This zmk-config shows how to use [MCP320x](https://www.microchip.com/en-us/product/mcp3204) with [zmk-analog-input-driver](https://github.com/badjeff/zmk-analog-input-driver) as your mouse or scroll-wheel.
+This zmk-config shows how to use [MCP3204](https://www.microchip.com/en-us/product/mcp3204)/[MCP3208](https://www.microchip.com/en-us/product/mcp3208) with [zmk-analog-input-driver](https://github.com/badjeff/zmk-analog-input-driver) as your mouse or scroll-wheel.
 
 - board: seeeduino_xiao_ble (XIAO nRF52840)
 - shield: analog-input-mcp320x
 - modules: https://github.com/hidsh/zmk-analog-input-driver (branch: "support-mcp320x")
 
-Note: This zmk-config does *not* support [building firmware using Github Actions](https://zmk.dev/docs/user-setup#summary). 
+## Limitations
+
+This zmk-config does *not* support [building firmware using Github Actions](https://zmk.dev/docs/user-setup#summary). 
 
 ## Firmware Binary
 You can download `zmk.uf2` from the [Releases](https://github.com/hidsh/zmk-analog-input-mcp320x/releases).
