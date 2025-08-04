@@ -143,10 +143,10 @@ At this time, you do rebuild and flash the new firmware.
 Your new firmware might behave better than before.
 You iterate this work for each property.
 
-Second property `mv-min-max` wants your answer to `((max - min) / 2) * 0.9)`. The `0.9` means some margin.
+Second property `mv-min-max` wants your answer to `((max - min) / 2) * 0.9)`. The `0.9` means some margins.
 
 ### 4. Follow your sense
-The rest of the properties require something like sense instead of mathematics.
+The rest of the properties want something like sense instead.
 
 Therefore, I'd like to quote a master of martial arts.
 
