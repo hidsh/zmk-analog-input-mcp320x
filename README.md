@@ -2,7 +2,7 @@
 
 ![photo-breadboard](img/IMG_1603.jpg)
 
-This zmk-config shows how to use [MCP320x](https://www.microchip.com/en-us/product/mcp3204) with [zmk-analog-input-driver](https://github.com/badjeff/zmk-analog-input-driver).
+This zmk-config shows how to use [MCP320x](https://www.microchip.com/en-us/product/mcp3204) with [zmk-analog-input-driver](https://github.com/badjeff/zmk-analog-input-driver) as your mouse or scroll-wheel.
 
 - board: seeeduino_xiao_ble (XIAO nRF52840)
 - shield: analog-input-mcp320x
